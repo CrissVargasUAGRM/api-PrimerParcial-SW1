@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import User from "../models/users.model";
 import jwt from "jsonwebtoken";
 import * as resourses from "../lib/resourses";
@@ -28,7 +29,8 @@ export const singin = async (req: Request, res: Response, next: NextFunction) =>
     if(!userFound){
         return res.status(400).json({message: "Usuario no encontrado :c"});
     }
-    if(req.body.password != userFound.password){
+    const passuser = bcrypt.compareSync(req.body.password, userFound.password);
+    if(!passuser){
         return res.status(400).json({message: "Contraseña incorrecta :c"})
     }
     const token = jwt.sign({id: userFound._id}, `${process.env.SECRETKEY}`, {
