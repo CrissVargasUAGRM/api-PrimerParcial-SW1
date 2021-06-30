@@ -12,7 +12,7 @@ import authRoutes from "./routes/auth.routes";
 
 dotenv.config();
 const app = express();
-app.set("port", process.env.PORT);
+app.set("port", process.env.PORT || 3000);
 
 export let httpServer = new http.Server(app);
 let io = new socketIO.Server(httpServer);
