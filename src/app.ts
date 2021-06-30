@@ -30,8 +30,9 @@ app.use("/api", authRoutes);
 
 io.on('connection', cliente => {
     console.log('Cliente conectado');
-    mySockets.mensaje(cliente, io);
+    //mySockets.mensaje(cliente, io);
     mySockets.desconectar(cliente);
+    mySockets.diagrama(cliente, io);
 });
 
 export default app;

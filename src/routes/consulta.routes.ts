@@ -6,7 +6,7 @@ import { verifyToken } from "../middlewares/authJwt";
 
 const router = Router();
 
-router.get('/consulta', verifyToken, ConsultaCtrl.getConsulta);
-router.post("/consultaCreate", verifyToken, ConsultaCtrl.createConsulta);
+router.get('/diagram',  ConsultaCtrl.getDiagrams);
+router.post("/saveDiagram",  ConsultaCtrl.createDiagram);
 
 export default router;

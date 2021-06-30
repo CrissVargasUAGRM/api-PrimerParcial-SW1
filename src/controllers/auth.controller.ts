@@ -21,7 +21,7 @@ export const singup = async (req: Request, res: Response, next: NextFunction) =>
     const token = jwt.sign({id: saveUser._id}, `${process.env.SECRETKEY}`, {
         expiresIn: 86400 //24 horas
     });
-    res.status(200).json({token});
+    res.status(200).json({token, newUser});
 }
 
 export const singin = async (req: Request, res: Response, next: NextFunction) => {
@@ -36,7 +36,7 @@ export const singin = async (req: Request, res: Response, next: NextFunction) =>
     const token = jwt.sign({id: userFound._id}, `${process.env.SECRETKEY}`, {
         expiresIn: 86400 //24 horas
     });
-    res.status(200).json({token});
+    res.status(200).json({token, userFound});
 }
 
 

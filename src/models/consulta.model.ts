@@ -3,8 +3,9 @@
 import { Schema, model } from "mongoose";
 
 const consultaSchema = new Schema({
-    "costo": Number,
-    "house": String
+    "diagram": {
+        type: String
+    }
 },{
     timestamps: true,
     versionKey: false
