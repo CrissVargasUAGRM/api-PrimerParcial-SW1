@@ -9,6 +9,7 @@ import * as mySockets from "./sockets/socket";
 //Rutas
 import consultaRoutes from "./routes/consulta.routes";
 import authRoutes from "./routes/auth.routes";
+import dialogRoutes from "./routes/dialog.routes";
 
 dotenv.config();
 const app = express();
@@ -27,6 +28,7 @@ app.use(express.json());
 
 app.use("/api", consultaRoutes);
 app.use("/api", authRoutes);
+app.use("/api", dialogRoutes);
 
 io.on('connection', cliente => {
     console.log('Cliente conectado');
