@@ -31,15 +31,15 @@ export const probando = (req: Request, res: Response, next: NextFunction) => {
 
 export const enviarEmail = (req: Request, res: Response, next: NextFunction) => {
     const agent = new WebhookClient({ request: req, response: res });
-    console.log("agente "+JSON.stringify(agent));
-    //console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
+    console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
     console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
     function reservarCita(agent: any) {
         const doctor = "DR Ariel Rios Vargas";
         const posta = "Bajio del oriente";
         const ubicacion = "Av villa ortuño 6to anillo";
         const celDoctor = "78588196";
-        let nombre = agent.queryResult.parameters.nombre.name;
+        let nombre = req.body.queryResult.parameters.email;
+        console.log(nombre);
         let email = agent.queryResult.parameters.email;
         let telefono = agent.queryResult.parameters.telefono;
         let fecha = agent.queryResult.parameters.fecha;
