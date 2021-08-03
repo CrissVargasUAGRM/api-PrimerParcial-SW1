@@ -31,7 +31,7 @@ export const probando = (req: Request, res: Response, next: NextFunction) => {
 
 export const enviarEmail = (req: Request, res: Response, next: NextFunction) => {
     const agent = new WebhookClient({ request: req, response: res });
-    console.log("agente "+agent);
+    console.log("agente "+JSON.stringify(agent));
     //console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
     console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
     function reservarCita(agent: any) {
