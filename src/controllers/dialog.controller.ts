@@ -50,6 +50,7 @@ export const enviarEmail = (req: Request, res: Response, next: NextFunction) => 
         dynamic_template_data: {doctor,posta,ubicacion,celDoctor,nombre,telefono,fecha}
       };
       sgMail.send(msg);
+      agent.add(`Gracias por reservar`);
     }
     let intentMap = new Map();
     intentMap.set('reservarCita', reservarCita);
