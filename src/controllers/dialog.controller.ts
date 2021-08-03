@@ -33,16 +33,16 @@ export const enviarEmail = (req: Request, res: Response, next: NextFunction) => 
     const agent = new WebhookClient({ request: req, response: res });
     console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
     console.log('Dialogflow Request body: ' + JSON.stringify(req.body));
-    function reservarCita(agent: any) {
+    function reservarCita() {
         const doctor = "DR Ariel Rios Vargas";
         const posta = "Bajio del oriente";
         const ubicacion = "Av villa ortuño 6to anillo";
         const celDoctor = "78588196";
         let nombre = req.body.queryResult.parameters.email;
         console.log(nombre);
-        let email = agent.queryResult.parameters.email;
-        let telefono = agent.queryResult.parameters.telefono;
-        let fecha = agent.queryResult.parameters.fecha;
+        let email = req.body.queryResult.parameters.email;
+        let telefono = req.body.queryResult.parameters.telefono;
+        let fecha = req.body.queryResult.parameters.fecha;
       const msg = {
         to: email, // Change to your recipient
         from: "cristhian_086@hotmail.com", // Change to your verified sender
