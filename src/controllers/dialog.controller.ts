@@ -38,8 +38,7 @@ export const enviarEmail = (req: Request, res: Response, next: NextFunction) => 
         const posta = "Bajio del oriente";
         const ubicacion = "Av villa ortuño 6to anillo";
         const celDoctor = "78588196";
-        let nombre = req.body.queryResult.parameters.email;
-        console.log(nombre);
+        let nombre = req.body.queryResult.parameters.nombre.name;
         let email = req.body.queryResult.parameters.email;
         let telefono = req.body.queryResult.parameters.telefono;
         let fecha = req.body.queryResult.parameters.fecha;
